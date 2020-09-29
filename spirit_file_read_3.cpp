@@ -15,8 +15,8 @@ struct Abc : grammar<Abc>
     {
         template<typename Ite>
           void operator()( Ite i1, Ite i2 ) const
-            { cout << "文字数：" << i2 - i1 << endl
-                   << "　内容：" << string(i1,i2) << endl; }
+            { cout << "# of characters: " << i2 - i1 << endl
+                   << "string: " << string(i1,i2) << endl; }
     };
 
     template<typename ScannerT>
@@ -26,10 +26,10 @@ struct Abc : grammar<Abc>
 	  rule_t r; rule_t r_list;
           definition( const Abc& self )
           {
-	    // r = (*anychar_p)[MyAction()];
+	    r = (*anychar_p)[MyAction()];
 	    // r_list = r % +blank_p;
 	    // r = (+alnum_p)[MyAction()] % ',';
-	    r = (+alnum_p >> blank_p)[MyAction()]; //' '; // blank_p;
+	    //r = (+alnum_p >> blank_p)[MyAction()]; //' '; // blank_p;
             // r = 'a' >> (*ch_p('b'))[MyAction()] >> 'c';
           }
           const rule_t& start() const { return r; }
@@ -50,7 +50,7 @@ int main(int argc, char* argv[]){
     using namespace std;
 
     if(argc != 2){
-        cerr << "引数の数が間違っています．" << endl;
+        cerr << "wrong # of args." << endl;
         cerr << "./spirit_file_read input.txt" << endl;
         return 1;
     }
