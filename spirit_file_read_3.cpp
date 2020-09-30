@@ -15,8 +15,13 @@ struct Abc : grammar<Abc>
     {
         template<typename Ite>
           void operator()( Ite i1, Ite i2 ) const
-            { cout << "# of characters: " << i2 - i1 << endl
-                   << "string: " << string(i1,i2) << endl; }
+            {
+	      if(i2 - i1 > 0)
+		{
+		  cout << "# of characters: " << i2 - i1 << endl
+		       << "string: " << string(i1,i2) << endl;
+		}
+	    }
     };
 
     template<typename ScannerT>
@@ -26,24 +31,12 @@ struct Abc : grammar<Abc>
 	  rule_t r; rule_t r_list;
           definition( const Abc& self )
           {
-	    r = (*anychar_p)[MyAction()];
-	    // r_list = r % +blank_p;
-	    // r = (+alnum_p)[MyAction()] % ',';
-	    //r = (+alnum_p >> blank_p)[MyAction()]; //' '; // blank_p;
-            // r = 'a' >> (*ch_p('b'))[MyAction()] >> 'c';
+	    r = (+alnum_p >> '_' >> alnum_p | +alnum_p >> '*' | *alnum_p )[MyAction()];
+	    r_list = r % +space_p;
           }
-          const rule_t& start() const { return r; }
+          const rule_t& start() const { return r_list; }
       };
 };
-
-/*
-int main()
-{
-    for( string line; cout<<"# ", getline(cin, line); )
-        if( parse( line.begin(), line.end(), Abc() ).full );
-    return 0;
-}
-*/
 
 #include <typeinfo>
 int main(int argc, char* argv[]){
@@ -72,11 +65,10 @@ int main(int argc, char* argv[]){
 
         cout << "line:" << counter << ":" << tmp << endl; 
 
-        parse_info<string::const_iterator> info =
-	parse( tmp.begin(), tmp.end(), Abc() );
-        cout << (info.full ? "OK" : "") << endl;
-
-	counter++;
+       if( parse( tmp.begin(), tmp.end(), Abc() ).full );
+       cout << endl;
+       
+       counter++;
     }
 
     ifs.close();
