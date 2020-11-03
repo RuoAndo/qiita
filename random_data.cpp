@@ -173,17 +173,17 @@ int main( int argc, char* argv[] )
 	       << "\"" << "," ;
 
     outputfile << "\"" << tmpstring.substr( 0, 4 )
-	       << "/"
+	       << "-"
 	       << tmpstring.substr( 4, 2 ) 
-	       << "/"
+	       << "-"
 	       << tmpstring.substr( 6, 2 )
-	       << " "
+	       << "T"
 	       << tmpstring.substr( 8, 2 )
 	       << ":"
 	       << tmpstring.substr( 10, 2 )
 	       << ":"
 	       << tmpstring.substr( 12, 2 )
-	       << "\"" << "," ;
+	       << "Z\"" << "," ;
 
     outputfile << "\"" << GetRandom(1,1000) << "\"" << ",";
 
