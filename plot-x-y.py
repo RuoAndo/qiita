@@ -1,5 +1,3 @@
-
-import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -19,7 +17,7 @@ for data in data_set:
     
 plt.plot(x, y)
     
-plt.title("correlation")
+#plt.title("correlation")
 #plt.xlabel("Average Temperature of SAITAMA")
 #plt.ylabel("Average Temperature of IWATE")
 
