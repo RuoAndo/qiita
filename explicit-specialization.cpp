@@ -1,7 +1,3 @@
-// Copyright (c) 2014
-// Akira Takahashi, Fumiki Fukuda.
-// Released under the CC0 1.0 Universal license.
-
 #include <iostream>
 #include <cstring> // strcmp
 
