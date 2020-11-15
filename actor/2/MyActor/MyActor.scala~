@@ -1,0 +1,36 @@
+import akka.actor.ActorSystem
+import akka.actor.Props
+import akka.actor.Actor
+import akka.event.Logging
+
+case class MyCaseClass(prop1: Int, prop2: String)
+
+class MyActor extends Actor {
+  val log = Logging(context.system, this)
+
+  def receive = {
+    case MyCaseClass(prop1, prop2) => {
+      log.info("prop1: %d, prop2: %s" format (prop1, prop2))
+    }
+    case _ => {
+    }
+  }
+}
+
+object Main {
+  def main(args: Array[String]): Unit = {
+    val system = ActorSystem("mySystem")
+
+    // アクターの生成
+    val props = Props[MyActor]
+    val actor = system.actorOf(props, name = "myActor")
+
+    // ケースクラスを渡す
+    val msg = new MyCaseClass(123, "abc")
+
+    while(true) {
+      Thread.sleep(1000)
+      actor ! msg
+    }
+  }
+}
