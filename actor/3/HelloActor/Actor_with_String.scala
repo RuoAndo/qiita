@@ -3,8 +3,6 @@ import akka.actor.Props
 import akka.actor.Actor
 import akka.event.Logging
 
-case class MyCaseClass(prop1: Int, prop2: String)
-
 class Actor_with_String extends Actor {
   val log = Logging(context.system, this)
 
