@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(quit:, Some(7491b79b-367f-4089-9824-93a7a454b028), Some(CommandSource(console0)))[0m[0J
+[0m[[0m[31merror[0m] [0m[0mExpected key[0m[0J
+[0m[[0m[31merror[0m] [0m[0mquit:[0m[0J
+[0m[[0m[31merror[0m] [0m[0m     ^[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m[0J
+[0m[[0m[0minfo[0m] [0m[0mshutting down sbt server[0m[0J

@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(quit:, Some(794e1b93-5409-438c-8b52-5fe6581b6b66), Some(CommandSource(console0)))[0m[0J
+[0m[[0m[31merror[0m] [0m[0mExpected key[0m[0J
+[0m[[0m[31merror[0m] [0m[0mquit:[0m[0J
+[0m[[0m[31merror[0m] [0m[0m     ^[0m[0J
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m[0J
