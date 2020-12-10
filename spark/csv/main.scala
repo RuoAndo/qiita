@@ -5,7 +5,7 @@ object Main {
 
       val sc = new SparkContext("local[*]", "App") 
 
-      val rddFromFile = sc.textFile("1.csv")
+      val rddFromFile = sc.textFile("random_data.txt")
       val rdd = rddFromFile.map(f=>{
       	  f.split(",")
       })
